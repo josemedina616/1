@@ -1,0 +1,4 @@
+// Interfaz que define el contrato para cambiar moneda
+public interface CambioMoneda {
+    double cambiarMoneda(double monto);
+}
