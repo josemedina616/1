@@ -1,0 +1,33 @@
+// Clase principal para probar el polimorfismo
+public class PruebaCambioMoneda {
+    public static void main(String[] args) {
+        
+        // Crear instancias de las implementaciones
+        CambioMoneda solADolar = new CambioSolADolar();
+        CambioMoneda dolarASol = new CambioDolarASol();
+        
+        // Demostración del polimorfismo
+        System.out.println("=== CONVERSIÓN DE MONEDAS ===");
+        
+        // Convertir 100 Soles a Dólares
+        double soles = 100.0;
+        double dolares = solADolar.cambiarMoneda(soles);
+        System.out.println(soles + " Soles = " + String.format("%.2f", dolares) + " Dólares");
+        
+        // Convertir 50 Dólares a Soles
+        double dolares2 = 50.0;
+        double soles2 = dolarASol.cambiarMoneda(dolares2);
+        System.out.println(dolares2 + " Dólares = " + String.format("%.2f", soles2) + " Soles");
+        
+        // Usando polimorfismo con un array
+        System.out.println("\n=== USANDO POLIMORFISMO CON ARRAY ===");
+        CambioMoneda[] conversores = {solADolar, dolarASol};
+        
+        double montoPrueba = 34.0;
+        for (CambioMoneda conversor : conversores) {
+            double resultado = conversor.cambiarMoneda(montoPrueba);
+            String tipo = (conversor instanceof CambioSolADolar) ? "Soles a Dólares" : "Dólares a Soles";
+            System.out.println(tipo + ": " + montoPrueba + " → " + String.format("%.2f", resultado));
+        }
+    }
+}
