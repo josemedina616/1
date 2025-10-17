@@ -1,0 +1,9 @@
+// Implementación para convertir de Dólares a Soles
+public class CambioDolarASol implements CambioMoneda {
+    
+    @Override
+    public double cambiarMoneda(double montoDolar) {
+        // Multiplica por 3.4 para convertir Dólares a Soles
+        return montoDolar * 3.4;
+    }
+}
